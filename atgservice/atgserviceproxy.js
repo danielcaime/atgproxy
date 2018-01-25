@@ -26,8 +26,8 @@ var searchsrv = function(param){
                 //resolve.apply(null, body)
              }
            //console.log(error);
-           console.log(uri);
-        });
+           //console.log(uri);
+        });//.
         //setTimeout(resolve.bind(null, 'someValueToBeReturned'), 2000);
     });
 }
