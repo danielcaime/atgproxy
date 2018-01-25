@@ -6,8 +6,10 @@ var searchsrv = function(param){
 
     const resperpage = 10;
     const codsucursal = 200;
+
+    uri:     `http://www.cotodigital3.com.ar/AtgServiceWS/restfull/searchws/search/200?textinput=${param}&cantidadPorPagina=10`;
     const options = {
-        uri:     `http://www.cotodigital3.com.ar/AtgServiceWS/restfull/searchws/search/200?textinput=${param}&cantidadPorPagina=10`,
+        
         hostname: 'http://www.cotodigital3.com.ar',
         port: null,
         path: `/AtgServiceWS/restfull/searchws/search/${codsucursal}?textinput=${param}&cantidadPorPagina=${resperpage}`,
@@ -19,7 +21,7 @@ var searchsrv = function(param){
         //var uri       = "http://localhost:3000/search";
         //var uri       = "http://www.cotodigital3.com.ar/AtgServiceWS/restfull/searchws/search/200?textinput=smart&cantidadPorPagina=10";
         
-        request.get(options, function (error, response, body) {
+        request.get(uri, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 console.log(param);
                 resolve(body);
