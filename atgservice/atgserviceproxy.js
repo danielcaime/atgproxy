@@ -7,7 +7,7 @@ var searchsrv = function(param){
     const resperpage = 10;
     const codsucursal = 200;
 
-    uri:     `http://www.cotodigital3.com.ar/AtgServiceWS/restfull/searchws/search/200?textinput=${param}&cantidadPorPagina=10`;
+    const uri = `http://www.cotodigital3.com.ar/AtgServiceWS/restfull/searchws/search/200?textinput=${param}&cantidadPorPagina=10`;
     const options = {
         
         hostname: 'http://www.cotodigital3.com.ar',
