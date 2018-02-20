@@ -1,10 +1,11 @@
 /**
- * 
+ * dcaime
+ * search module
  */
 
-//search module
 var express = require('express');
 var proxysrv = require('../atgservice/atgserviceproxy');
+var helper = require('../models/modelhelper');
 
  const router = express.Router();
 
@@ -19,10 +20,14 @@ var proxysrv = require('../atgservice/atgserviceproxy');
             var list = '';
             proxysrv(params).then(data => {
                 var temp = JSON.parse(data);
+                //console.log(data.lenght);
+                
                 list = temp.result.productos;
+                //helper(list);
     
                 res.render('./search', {
-                    producList:list
+                    buscar:params,
+                    producList:helper(list)//list
                     });
             });      
         }

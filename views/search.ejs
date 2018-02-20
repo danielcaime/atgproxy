@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>buscar</title>
+<title>Buscar producto</title>
 
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -14,27 +14,28 @@
 <body class="container">
 
 <header>
-    <% include ./header %>
+    
 </header>
 
 <main>
     <div class="jumbotron">
-        <h1>This is great</h1>
-        <p>Welcome to templating using EJS</p>
+        <h3>COTO</h3>
+        <label>Se han encontrado 23 productos para la búsqueda:<%= buscar %></label>
     </div>
 </main>
 
-<h2>Productos</h2>
+<h4>Productos</h4>
 
-
-<ul>
-    <% producList.forEach(function(producto) { %>
-        <li><div class=""><%= producto.nombre %> - <%= producto.nombre %> -
-            <img src=<%= producto.imagenes.pathMini[0] %> alt="" class="logo">
-        </div>
-        </li>
-    <% }); %>
-</ul>
+<table style="width:100%">
+    <% producList.forEach(function(item) { %>
+    <tr>
+        <td><input type="radio" name="gender" value=<%=item.id%>></td>
+        <td><img src=<%= item.images %> style="width:100px;margin:4px" /></td>
+        <td><%= item.name %></td>
+        <td><%= item.price %></td>
+    </tr>   
+    <% }); %> 
+</table>
 
 <footer>
     <% include ./footer %>

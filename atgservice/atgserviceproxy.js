@@ -7,7 +7,7 @@ var searchsrv = function(param){
     const resperpage = 10;
     const codsucursal = 200;
 
-    const uri = `http://www.cotodigital3.com.ar/AtgServiceWS/restfull/searchws/search/200?textinput=${param}&cantidadPorPagina=10`;
+    //const uri = `http://www.cotodigital3.com.ar/AtgServiceWS/restfull/searchws/search/200?textinput=${param}&cantidadPorPagina=10`;
     const options = {
         
         hostname: 'http://www.cotodigital3.com.ar',
@@ -18,7 +18,7 @@ var searchsrv = function(param){
 
     return new Promise((resolve, reject) => {
         
-        //var uri       = "http://localhost:3000/search";
+        var uri       = "http://localhost:3000/search";
         //var uri       = "http://www.cotodigital3.com.ar/AtgServiceWS/restfull/searchws/search/200?textinput=smart&cantidadPorPagina=10";
         
         request.get(uri, function (error, response, body) {
