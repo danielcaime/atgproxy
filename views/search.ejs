@@ -4,10 +4,35 @@
 <meta charset="UTF-8">
 <title>Buscar producto</title>
 
-
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://unpkg.com/react-weui@1.1.1/build/dist/react-weui.css">
 <style>
     body    { padding-top:50px; }
+    .button-fb{
+        background-color: #18a689;
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+        display: inline-block;            
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
 </style>
 <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
 </head>
@@ -22,20 +47,29 @@
         <h3>COTO</h3>
         <label>Se han encontrado 23 productos para la búsqueda:<%= buscar %></label>
     </div>
-</main>
+</main> 
 
 <h4>Productos</h4>
-
-<table style="width:100%">
-    <% producList.forEach(function(item) { %>
-    <tr>
-        <td><input type="radio" name="gender" value=<%=item.id%>></td>
-        <td><img src=<%= item.images %> style="width:100px;margin:4px" /></td>
-        <td><%= item.name %></td>
-        <td><%= item.price %></td>
-    </tr>   
-    <% }); %> 
-</table>
+<div>
+<% producList.forEach(function(item) { %>
+<div>
+    <div id='product' className='static-page'>
+      <div className='static-page-body'>
+        <div className='product-body'>
+          <img className='product-image' src="<%= item.images %>"/>
+          <div className='product-details'>
+            <h1><%= item.name %></h1>
+            <p className='static-page-subtitle'><%= item.name %></p>
+            <b><%= item.price %></b>
+            <Button class='button-fb'>Ver</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+  </div>
+  <% }); %> 
+  <div>
 
 <footer>
     <% include ./footer %>

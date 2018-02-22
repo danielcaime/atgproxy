@@ -2,10 +2,12 @@
  * dcaime
  * search module
  */
-
+ /*libs  */
 var express = require('express');
 var proxysrv = require('../atgservice/atgserviceproxy');
 var helper = require('../models/modelhelper');
+/*styles */
+//require('react-weui/lib/react-weui.min.css');
 
  const router = express.Router();
 
