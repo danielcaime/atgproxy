@@ -6,12 +6,17 @@
  //modules
 var express = require('express');
 const bodyParser = require('body-parser')
+var  path = require('path');
 //routes
 var index = require('./routes/index');
 var search = require('./routes/search');
 var webhooks = require('./routes/webhooks');
 //
 const app = express();
+
+/* ----------  Static Assets  ---------- */
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: false}))

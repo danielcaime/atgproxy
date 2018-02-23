@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Buscar producto</title>
+
+<link rel="stylesheet" href="https://unpkg.com/react-weui@1.1.1/build/dist/react-weui.css">
+<script src="/bundle.js"></script>
+<style>
+    body    { padding-top:50px; }
+    .button-fb{
+        background-color: #18a689;
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+        display: inline-block;            
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+    
+    .content {
+    min-height: 250px;
+    padding: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.content-wrapper, .right-side {
+    min-height: 100%;
+    background-color: #ecf0f5;    
+}
+  
+      /**
+       * Overlay an invisible date input element
+       * This is to get the native date picker, but show a pretty date underneath
+       */
+      #datepicker {
+        position: absolute;
+        z-index: 5;
+      
+        width: 150vw;
+        height: 5rem;
+      
+        margin-top: -2rem;
+        margin-left: -2em;
+      
+        opacity: 0;
+      }
+      
+      .slider-option {
+        position: absolute;
+      }
+      
+      .active {
+        color: #888;
+      }
+      
+      #dry {
+        left: 1rem;
+      }
+      
+      #normal {
+        width: 100%;
+        text-align: center
+      }
+      
+      #humid {
+        right: 1rem;
+      }
+      
+      section {
+        margin-top: 2rem;
+      }
+      
+      .weui-btn-area {
+        margin-top: 2em;
+        margin-bottom: 2rem;
+      }
+      
+      .weui-btn-area_inline.see-options {
+        width: 91%;
+      }
+      
+      #arrivalPeriod .weui-cell__hd:first-child {
+        display: none;
+      }
+      
+      #arrival-periods .weui-cell__bd {
+        line-height: 1.5rem;
+      }
+      
+      .see-options {
+        position: fixed;
+        bottom: 0;
+        z-index: 10;
+        width: 100%;
+        height: 4em;
+        padding: 0.75rem 1rem;
+        margin: 0;
+        background-color: #fff;
+        border-top: solid 1px #EAEAEA;
+      }
+      
+      .see-options > button {
+        width: calc(100vw - 2rem);
+        margin: 0;
+      }
+      
+      .static-page {
+        display: flex;
+        height: 100vh;
+        font-weight: 200;
+        text-align: center;
+        justify-content: center;
+        align-content: center;
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: nowrap;
+      }
+      
+      .static-page-body {
+        width: 30em;
+      }
+      
+      .static-page h1 {
+        font-weight: 300;
+      }
+      
+      .static-page-subtitle {
+        color: #888888;
+      }
+      
+      #product {
+        background-color: #FAFAFA;
+      }
+      
+      #product h1 {
+        padding: 0.25rem 0;
+        color: black;
+      }
+      
+      .product-body {
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        max-width: 600px;
+        padding: 1rem 1rem 6rem;
+      }
+      
+      .product-details {
+        margin: -0.75rem 1rem 1rem 1rem;
+        text-align: left;
+      }
+      
+      .product-image {
+        align-self: flex-start;
+        background: #EAEAEA;
+        height: auto;
+        max-height: 150px;
+        max-width: 150px;
+        min-height: 72px;
+        min-width: 72px;
+        width: 25%;
+      }
+      
+      .indicator {
+        margin-left: 6px;
+      }
+      
+      .indicator .weui-icon-success-circle {
+        margin-top: -3px;
+        margin-left: -3px;
+      }
+      
+      #arrivalPeriod .weui-check__label {
+        position: relative;
+        height: 24px;
+      }
+      
+      #arrivalPeriod .indicator {
+        margin-top: 5px;
+      }
+      
+      .checkbox-text {
+        position: absolute;
+        left: 49px;
+        width: 75vw;
+      }
+      
+      .gift-category {
+        position: relative;
+        height: 65px;
+      }
+      
+      .gift-title {
+        font-size: 1.1rem;
+        color: #222;
+        position: absolute;
+        top: 18px;
+      }
+      
+      .gift-subtitle {
+        position: absolute;
+        color: #999;
+        position: absolute;
+        bottom: 18px;
+      }
+      
+      .indicator img {
+        width: 1.3rem;
+        height: 1.3rem;
+      }
+      </style>
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body class="container">
+    
+<header>
+    
+</header>
+
+<div id="content"></div>
+<main>
+    <div class="jumbotron">
+        <h3>COTO</h3>
+        <label>Se han encontrado 23 productos para la búsqueda:<%= buscar %></label>
+    </div>
+</main> 
+
+<h4>Productos</h4>
+<div>
+<% producList.forEach(function(item) { %>
+<div>
+    <div id='product' className='static-page'>
+      <div className='static-page-body'>
+        <div className='product-body'>
+          <img className='product-image' src="<%= item.images %>"/>
+          <div className='product-details'>
+            <h1><%= item.name %></h1>
+            <p className='static-page-subtitle'><%= item.name %></p>
+            <b><%= item.price %></b>
+            <Button class='button-fb'>Ver</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+  </div>
+  <% }); %> 
+  <div>
+
+    <div>
+        <div id='product' className='static-page'>
+          <div className='static-page-body'>
+            <div className='product-body'>
+              <img className='product-image' />
+              <div className='product-details'>
+                <h1>nombre</h1>
+                <p className='static-page-subtitle'>description</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ButtonArea className='see-options' direction='horizontal'>
+          <Button >
+            Choose Gift
+          </Button>
+          <Button >
+            Buy Now
+          </Button>
+        </ButtonArea>
+      </div>
+<footer>
+    <% include ./footer %>
+</footer>
+
+</body>
+</html>
