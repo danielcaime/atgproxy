@@ -14,6 +14,8 @@ var helper = require('../models/modelhelper');
  var get = router.get('/', (req,res)=>{
     var params = req.query.message;
 
+    console.log(req.query.message);
+    
     if(req.query.message == null){
         params = 'S/N';
         res.writeHead(200, {"Content-Type": "text/plain"});
