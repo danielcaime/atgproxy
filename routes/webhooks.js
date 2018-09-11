@@ -2,6 +2,8 @@
 /**
  * daniel caime
  */
+
+
 var express = require('express');
 
 const router = express.Router();
@@ -18,7 +20,6 @@ var get = router.get('/', (req, res) => {
       console.log(error);
     }
   });
-  
   
   router.post('/', (req, res) => {
     //return satus
